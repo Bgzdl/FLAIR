@@ -15,7 +15,17 @@ import glob
 import pandas as pd
 import numpy as np
 
-from local_data.constants import *
+
+# from local_data.constants import *
+
+PATH_DATASETS = "I:/数据集/"  # ".../Datasets/FUNDUS/"
+
+# Path with pretraining and transferability dataframes
+PATH_DATAFRAME_PRETRAIN = "pretraining/"
+PATH_DATAFRAME_TRANSFERABILITY = "transferability/"
+PATH_DATAFRAME_TRANSFERABILITY_CLASSIFICATION = PATH_DATAFRAME_TRANSFERABILITY + "classification/"
+PATH_DATAFRAME_TRANSFERABILITY_SEGMENTATION = PATH_DATAFRAME_TRANSFERABILITY + "segmentation/"
+
 
 if not os.path.exists(PATH_DATAFRAME_PRETRAIN):
     os.mkdir(PATH_DATAFRAME_PRETRAIN)
@@ -91,7 +101,7 @@ def adequate_03_idrid():
     data = []
 
     # A.Segmentation
-    subpath = "A.%20Segmentation/A. Segmentation/"
+    subpath = "A. Segmentation/"
     subpath_images = "1. Original Images/a. Training Set/"
     subpath_gt = "2. All Segmentation Groundtruths/a. Training Set/"
     annotations_paths = ["1. Microaneurysms", "2. Haemorrhages", "3. Hard Exudates", "4. Soft Exudates"]
@@ -105,9 +115,10 @@ def adequate_03_idrid():
 
         categories = []
         atributes = []
+        # 判断该图片为何种类别，通过更改文件路径来匹配，添加到类别属性中。
         for i in range(len(annotations_categories)):
             annotation_path = PATH_DATASETS + path_dataset + subpath + subpath_gt + annotations_paths[i] + "/"\
-                              + iFile.replace(".jpg","_" + annotations_abbreviations[i] + ".tif")
+                              + iFile.replace(".jpg", "_" + annotations_abbreviations[i] + ".tif")
             if os.path.isfile(annotation_path):
                 categories.append(annotations_categories[i])
 
@@ -121,7 +132,7 @@ def adequate_03_idrid():
     labels_dme = {0: "no referable diabetic macular edema", 1: "non clinically significant diabetic macular edema",
                   2: "diabetic macular edema"}
 
-    subpath = "B.%20Disease%20Grading/B. Disease Grading/"
+    subpath = "B. Disease Grading/"
     subpath_images = "1. Original Images/a. Training Set/"
     dataframe = "2. Groundtruths/a. IDRiD_Disease Grading_Training Labels.csv"
 
@@ -1227,3 +1238,9 @@ def adequate_CGI_HRDC():
 
     df_out = pd.DataFrame(data)
     df_out.to_csv(PATH_DATAFRAME_TRANSFERABILITY_SEGMENTATION + "CGI_HRDC_Task2.csv")
+
+
+# adequate_03_idrid
+# adequate_04_rfmid
+# adequate_06_DEN()
+# adequate_07_lag()

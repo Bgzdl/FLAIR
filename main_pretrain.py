@@ -36,6 +36,7 @@ def main():
     # Folders, data, etc.
     parser.add_argument('--data_root_path', default=PATH_DATASETS)
     parser.add_argument('--dataframes_path', default=PATH_DATAFRAME_PRETRAIN)
+    '''
     parser.add_argument('--datasets', default=["01_EYEPACS", "03_IDRID", "04_RFMid", "05_1000x39",
                                                "06_DEN", "07_LAG", "08_ODIR", "09_PAPILA", "10_PARAGUAY",
                                                "11_STARE", "12_ARIA", "14_AGAR300", "15_APTOS", "16_FUND-OCT",
@@ -43,6 +44,8 @@ def main():
                                                "20_E-ophta", "21_G1020", "23_HRF", "24_ORIGA", "26_ROC",
                                                "27_BRSET", "28_OIA-DDR", "29_AIROGS", "30_SUSTech-SYSU", "31_JICHI",
                                                "32_CHAKSU", "33_DR1-2", "34_Cataract", "35_ScarDat"])
+                                               '''
+    parser.add_argument('--datasets', default=["03_IDRID"])
     parser.add_argument('--banned_categories', default=['myopia', 'cataract', 'macular hole', 'retinitis pigmentosa',
                                                         "myopic", "myope", "myop", "retinitis"])
     parser.add_argument('--out_path', default=PATH_RESULTS_PRETRAIN, help='output path')

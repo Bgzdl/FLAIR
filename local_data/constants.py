@@ -5,7 +5,7 @@ This script contains relative or absolute paths for local data
 """
 
 # Path with datasets
-PATH_DATASETS = ".../Datasets/FUNDUS/"
+PATH_DATASETS = "I:/数据集/"  # ".../Datasets/FUNDUS/"
 
 # Path with pretraining and transferability dataframes
 PATH_DATAFRAME_PRETRAIN = "./local_data/dataframes/pretraining/"
@@ -16,4 +16,3 @@ PATH_DATAFRAME_TRANSFERABILITY_SEGMENTATION = PATH_DATAFRAME_TRANSFERABILITY + "
 # Paths for results
 PATH_RESULTS_PRETRAIN = "./local_data/results/pretraining/"
 PATH_RESULTS_TRANSFERABILITY = "./local_data/results/transferability/"
-
